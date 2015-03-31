@@ -1,0 +1,58 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "cliente",
+            "relationshipNameCapitalized": "Cliente",
+            "relationshipFieldName": "cliente",
+            "otherEntityName": "cliente",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "Cliente",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "decorrenzaDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "DecorrenzaDate",
+            "fieldNameUnderscored": "decorrenza_date",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "scadenzaDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "ScadenzaDate",
+            "fieldNameUnderscored": "scadenza_date",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "importo",
+            "fieldType": "BigDecimal",
+            "fieldNameCapitalized": "Importo",
+            "fieldNameUnderscored": "importo",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "discountPercent",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "DiscountPercent",
+            "fieldNameUnderscored": "discount_percent",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": true,
+    "fieldsContainDateTime": true,
+    "fieldsContainDate": false,
+    "changelogDate": "20150311112406",
+    "pagination": "pagination",
+    "validation": false
+}

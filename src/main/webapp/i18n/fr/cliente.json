@@ -1,0 +1,22 @@
+{
+    "jhipsterdemoApp": {
+        "cliente" : {
+            "home": {
+                "title": "Clientes",
+                "createLabel": "Créer un nouveau Cliente",
+                "createOrEditLabel": "Créer ou éditer un Cliente"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Cliente {{ id }} ?"
+            },
+            "detail": {
+                "title": "Cliente"
+            },
+            "cognome": "Cognome",
+            "nome": "Nome",
+            "codiceFiscale": "CodiceFiscale",
+            "contratto": "contratto"
+        }
+    }
+}
+

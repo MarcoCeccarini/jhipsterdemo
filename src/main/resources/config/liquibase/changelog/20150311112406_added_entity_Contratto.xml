@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <!--
+        Added the entity Contratto.
+    -->
+    <changeSet id="20150311112406" author="jhipster">
+        <createTable tableName="T_CONTRATTO">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="decorrenza_date" type="timestamp"/>
+            <column name="scadenza_date" type="timestamp"/>
+            <column name="importo" type="decimal(10,2)"/>
+            <column name="discount_percent" type="integer"/>
+            <column name="cliente_id" type="bigint"/>
+        </createTable>
+        <dropDefaultValue tableName="T_CONTRATTO" columnName="decorrenza_date" columnDataType="datetime"/>
+
+        <dropDefaultValue tableName="T_CONTRATTO" columnName="scadenza_date" columnDataType="datetime"/>
+
+        
+        <addForeignKeyConstraint baseColumnNames="cliente_id"
+                                 baseTableName="T_CONTRATTO"
+                                 constraintName="fk_contratto_cliente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="T_CLIENTE"/>
+
+    </changeSet>
+</databaseChangeLog>

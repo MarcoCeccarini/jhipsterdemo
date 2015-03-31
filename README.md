@@ -1,1 +1,2 @@
-# jhipsterdemo
+README for jhipsterdemo
+==========================

@@ -1,0 +1,50 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "contratto",
+            "relationshipNameCapitalized": "Contratto",
+            "relationshipFieldName": "contratto",
+            "otherEntityName": "contratto",
+            "relationshipType": "one-to-many",
+            "otherEntityNameCapitalized": "Contratto"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "cognome",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Cognome",
+            "fieldNameUnderscored": "cognome",
+            "fieldValidate": true,
+            "fieldValidateRules": []
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Nome",
+            "fieldNameUnderscored": "nome",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "codiceFiscale",
+            "fieldType": "String",
+            "fieldNameCapitalized": "CodiceFiscale",
+            "fieldNameUnderscored": "codice_fiscale",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": true,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150311110933",
+    "pagination": "pagination",
+    "validation": true
+}
