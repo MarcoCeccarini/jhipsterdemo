@@ -84,7 +84,10 @@ angular.module('jhipsterdemoApp')
         };
         
         // remove consistenze:
-        $scope.removeConsistenza = function(id, rowIndex){
+        $scope.removeConsistenza = function(id, consistenza){
+        	
+        	var rowIndex = $scope.contratto.consistenzas.indexOf(consistenza);
+        	
         	if(id==null) {
         		$scope.contratto.consistenzas.splice(rowIndex,1);
         	}else{
@@ -92,9 +95,26 @@ angular.module('jhipsterdemoApp')
         			$scope.contratto.consistenzas.splice(rowIndex,1);
                 });   
         	}
+        	$scope.$apply();
         };
         
-        $scope.removeImpianto = function(id, consistenzaIndex, rowIndex){
+        /*
+         $scope.removeImpianto = function(id, consistenzaIndex, rowIndex){
+        	if(id==null) {
+        		$scope.contratto.consistenzas[consistenzaIndex].impiantos.splice(rowIndex, 1);
+        	}else{
+        		Impianto.delete({id:id}, function(result) {
+        			$scope.contratto.consistenzas[consistenzaIndex].impiantos.splice(rowIndex, 1);
+                });   
+        	}
+        	//$scope.$apply();
+        };*/
+        
+        $scope.removeImpianto = function(id, consistenza, impianto){
+        	
+    		var consistenzaIndex = $scope.contratto.consistenzas.indexOf(consistenza);
+    		var rowIndex = $scope.contratto.consistenzas[consistenzaIndex].impiantos.indexOf(impianto);
+        	
         	if(id==null) {
         		$scope.contratto.consistenzas[consistenzaIndex].impiantos.splice(rowIndex, 1);
         	}else{
@@ -104,7 +124,12 @@ angular.module('jhipsterdemoApp')
         	}
         };
         
-        $scope.removeIntervento = function(id, consistenzaIndex, impiantoIndex, rowIndex){
+        $scope.removeIntervento = function(id, consistenza, impianto, intervento){
+        	
+        	var consistenzaIndex = $scope.contratto.consistenzas.indexOf(consistenza);
+        	var impiantoIndex = $scope.contratto.consistenzas[consistenzaIndex].impiantos.indexOf(impianto);
+    		var rowIndex = $scope.contratto.consistenzas[consistenzaIndex].impiantos[impiantoIndex].interventos.indexOf(intervento);
+        	
         	if(id==null) {
         		$scope.contratto.consistenzas[consistenzaIndex].impiantos[impiantoIndex].interventos.splice(rowIndex, 1);
         	}else{
@@ -114,7 +139,13 @@ angular.module('jhipsterdemoApp')
         	}
         };
         
-        $scope.removeAttivita= function(id, consistenzaIndex, impiantoIndex, interventoIndex, rowIndex){
+        $scope.removeAttivita= function(id, consistenza, impianto, intervento, attivita){
+        	
+        	var consistenzaIndex = $scope.contratto.consistenzas.indexOf(consistenza);
+        	var impiantoIndex = $scope.contratto.consistenzas[consistenzaIndex].impiantos.indexOf(impianto);
+        	var interventoIndex = $scope.contratto.consistenzas[consistenzaIndex].impiantos[impiantoIndex].interventos.indexOf(intervento);
+    		var rowIndex = $scope.contratto.consistenzas[consistenzaIndex].impiantos[impiantoIndex].interventos[interventoIndex].attivitas.indexOf(attivita);
+        	        	
         	if(id==null) {
         		$scope.contratto.consistenzas[consistenzaIndex].impiantos[impiantoIndex].interventos[interventoIndex].attivitas.splice(rowIndex, 1);
         	}else{
