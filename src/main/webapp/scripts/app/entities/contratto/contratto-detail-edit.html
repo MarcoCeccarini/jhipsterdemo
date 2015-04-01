@@ -89,7 +89,7 @@
         	            	 <table class="table">
 							<thead>
 								<th>
-									<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeImpiantoModal" ng-click="loadAllTypeImpianto(consistenza.typeconsistenza.typeConsistenzaId, consistenzaIndex)">
+									<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeImpiantoModal" ng-click="loadAllTypeImpianto(consistenza.typeconsistenza.typeConsistenzaId, consistenza)">
       									<span class="glyphicon glyphicon-plus-sign"/>
   									</button>
 								</th>
@@ -109,7 +109,7 @@
 										<table class="table">
 											<thead>
 												<th>
-													<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeInterventoModal" ng-click="loadAllTypeIntervento(impianto.typeimpianto.typeImpiantoId, consistenzaIndex, impiantoIndex)">
+													<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeInterventoModal" ng-click="loadAllTypeIntervento(impianto.typeimpianto.typeImpiantoId, consistenza, impianto)">
       													<span class="glyphicon glyphicon-plus-sign"/>
   													</button>	
 												</th>
@@ -130,7 +130,7 @@
 														<table class="table">
 															<thead>
 																<th>
-																	<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeAttivitaModal" ng-click="loadAllTypeAttivita(intervento.typeintervento.typeInterventoId, consistenzaIndex, impiantoIndex, interventoIndex)">
+																	<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeAttivitaModal" ng-click="loadAllTypeAttivita(intervento.typeintervento.typeInterventoId, consistenzaIndex, impianto, intervento)">
     																	<span class="glyphicon glyphicon-plus-sign"/>
   																	</button>	
 																</th>

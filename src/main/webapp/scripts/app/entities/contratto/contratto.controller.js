@@ -98,18 +98,6 @@ angular.module('jhipsterdemoApp')
         	$scope.$apply();
         };
         
-        /*
-         $scope.removeImpianto = function(id, consistenzaIndex, rowIndex){
-        	if(id==null) {
-        		$scope.contratto.consistenzas[consistenzaIndex].impiantos.splice(rowIndex, 1);
-        	}else{
-        		Impianto.delete({id:id}, function(result) {
-        			$scope.contratto.consistenzas[consistenzaIndex].impiantos.splice(rowIndex, 1);
-                });   
-        	}
-        	//$scope.$apply();
-        };*/
-        
         $scope.removeImpianto = function(id, consistenza, impianto){
         	
     		var consistenzaIndex = $scope.contratto.consistenzas.indexOf(consistenza);
@@ -155,6 +143,7 @@ angular.module('jhipsterdemoApp')
         	}
         };
         
+        // add type:
         // type consistenza:
         $scope.loadAllTypeConsitenza = function(){
         	TypeConsistenza.query({}, function(result, headers) {
@@ -173,10 +162,10 @@ angular.module('jhipsterdemoApp')
         };
         
         // type impianto:
-        $scope.loadAllTypeImpianto = function(typeConsistenzaId,consistenzaIndex){
+        $scope.loadAllTypeImpianto = function(typeConsistenzaId,consistenza){
         	TypeImpianto.query({id:typeConsistenzaId}, function(result, headers) {
         		$scope.typeImpiantos = result;
-        		$scope.consistenzaIndex = consistenzaIndex;
+        		$scope.consistenzaIndex = $scope.contratto.consistenzas.indexOf(consistenza);
             });
         };
         
@@ -191,11 +180,11 @@ angular.module('jhipsterdemoApp')
         };
         
         // type intervento:
-        $scope.loadAllTypeIntervento = function(typeImpiantoId, consistenzaIndex, impiantoIndex){
+        $scope.loadAllTypeIntervento = function(typeImpiantoId, consistenza, impianto){
         	TypeIntervento.query({id:typeImpiantoId}, function(result, headers) {
         		$scope.typeInterventos = result;
-        		$scope.consistenzaIndex = consistenzaIndex;
-        		$scope.impiantoIndex = impiantoIndex;
+        		$scope.consistenzaIndex = $scope.contratto.consistenzas.indexOf(consistenza);
+         		$scope.impiantoIndex = $scope.contratto.consistenzas[consistenzaIndex].impiantos.indexOf(impianto);;
             });
         };
         
@@ -210,19 +199,19 @@ angular.module('jhipsterdemoApp')
         };
 
         // type attivita:
-        $scope.loadAllTypeAttivita = function(typeInterventoId, consistenzaIndex, impiantoIndex, interventoIndex){
+        $scope.loadAllTypeAttivita = function(typeInterventoId, consistenza, impianto, intervento){
         	TypeAttivita.query({id:typeInterventoId}, function(result, headers) {
         		$scope.typeAttivitas = result;
-        		$scope.consistenzaIndex = consistenzaIndex;
-        		$scope.impiantoIndex = impiantoIndex;
-        		$scope.interventoIndex = interventoIndex;
+        		$scope.consistenzaIndex = $scope.contratto.consistenzas.indexOf(consistenza);
+        		$scope.impiantoIndex = $scope.contratto.consistenzas[consistenzaIndex].impiantos.indexOf(impianto);;
+        		$scope.interventoIndex = $scope.contratto.consistenzas[consistenzaIndex].impiantos[impiantoIndex].interventos.indexOf(intervento);
             });
         };
         
         $scope.addTypeAttivita = function(typeAttivitaId){
         	Attivita.get({id:typeAttivitaId}, function(result) {
-        		if($scope.contratto.consistenzas[$scope.consistenzaIndex].impiantos[$scope.impiantoIndex].interventos[$scope.interventoIndex] == undefined){
-        			$scope.contratto.consistenzas[$scope.consistenzaIndex].impiantos[$scope.impiantoIndex].interventos[$scope.interventoIndex] = [];
+        		if($scope.contratto.consistenzas[$scope.consistenzaIndex].impiantos[$scope.impiantoIndex].interventos[$scope.interventoIndex].attivitas == undefined){
+        			$scope.contratto.consistenzas[$scope.consistenzaIndex].impiantos[$scope.impiantoIndex].interventos[$scope.interventoIndex].attivitas = [];
         		}
             	$scope.contratto.consistenzas[$scope.consistenzaIndex].impiantos[$scope.impiantoIndex].interventos[$scope.interventoIndex].attivitas.push( result );
             	$('#loadAllTypeAttivitaModal').modal('hide');
