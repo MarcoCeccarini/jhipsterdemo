@@ -81,7 +81,7 @@
           	        <ul class="list-group">
   
           	        <li class="list-group-item" class="panel-body" ng-repeat="consistenza in contratto.consistenzas" ng-init="consistenzaIndex = $index">
-          	        	<button type="button" class="btn btn-danger btn-xs" ng-click="removeConsistenza(consistenza.consistenzaId, consistenzaIndex)">
+          	        	<button type="button" class="btn btn-danger btn-xs" ng-click="removeConsistenza(consistenza.consistenzaId, consistenza)">
       						<span ng-class="consistenza.consistenzaId == null ? 'glyphicon glyphicon-minus-sign' : 'glyphicon glyphicon-remove-circle'"/>
   						</button>
 						{{consistenza.typeconsistenza.typeConsistenzaId}} - {{consistenza.typeconsistenza.descrizione}}
@@ -99,7 +99,7 @@
 							<tbody>
 								<tr ng-repeat="impianto in consistenza.impiantos" ng-init="impiantoIndex = $index">
 									<td>
-										<button type="button" class="btn btn-danger btn-xs" ng-click="removeImpianto(impianto.impiantoId, consistenzaIndex, impiantoIndex)">
+										<button type="button" class="btn btn-danger btn-xs" ng-click="removeImpianto(impianto.impiantoId, consistenza, impianto)">
       										<span ng-class="impianto.impiantoId == null ? 'glyphicon glyphicon-minus-sign' : 'glyphicon glyphicon-remove-circle'"/>
   										</button>
 									</td>
@@ -118,7 +118,7 @@
 											<tbody>
 												<tr ng-repeat="intervento in impianto.interventos" ng-init="interventoIndex = $index">
 													<td>
-														<button type="button" class="btn btn-danger btn-xs" ng-click="removeIntervento(intervento.interventoId, consistenzaIndex, impiantoIndex, interventoIndex)">
+														<button type="button" class="btn btn-danger btn-xs" ng-click="removeIntervento(intervento.interventoId, consistenza, impianto, intervento)">
       														<span ng-class="intervento.interventoId == null ? 'glyphicon glyphicon-minus-sign' : 'glyphicon glyphicon-remove-circle'"/>
   														</button>
 													</td>
@@ -138,7 +138,7 @@
 															<tbody>
 																<tr ng-repeat="attivita in intervento.attivitas" ng-init="attivitaIndex = $index">
 																	<td>
-																		<button type="button" class="btn btn-danger btn-xs" ng-click="removeAttivita(attivita.attivitaId, consistenzaIndex, impiantoIndex, interventoIndex, attivitaIndex)">
+																		<button type="button" class="btn btn-danger btn-xs" ng-click="removeAttivita(attivita.attivitaId, consistenza, impianto, intervento, attivita)">
       																		<span ng-class="attivita.attivitaId == null ? 'glyphicon glyphicon-minus-sign' : 'glyphicon glyphicon-remove-circle'"/>
   																		</button>
 																	</td>
