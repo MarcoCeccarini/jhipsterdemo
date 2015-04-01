@@ -184,7 +184,7 @@ angular.module('jhipsterdemoApp')
         	TypeIntervento.query({id:typeImpiantoId}, function(result, headers) {
         		$scope.typeInterventos = result;
         		$scope.consistenzaIndex = $scope.contratto.consistenzas.indexOf(consistenza);
-         		$scope.impiantoIndex = $scope.contratto.consistenzas[consistenzaIndex].impiantos.indexOf(impianto);;
+         		$scope.impiantoIndex = $scope.contratto.consistenzas[$scope.consistenzaIndex].impiantos.indexOf(impianto);;
             });
         };
         
@@ -203,8 +203,8 @@ angular.module('jhipsterdemoApp')
         	TypeAttivita.query({id:typeInterventoId}, function(result, headers) {
         		$scope.typeAttivitas = result;
         		$scope.consistenzaIndex = $scope.contratto.consistenzas.indexOf(consistenza);
-        		$scope.impiantoIndex = $scope.contratto.consistenzas[consistenzaIndex].impiantos.indexOf(impianto);;
-        		$scope.interventoIndex = $scope.contratto.consistenzas[consistenzaIndex].impiantos[impiantoIndex].interventos.indexOf(intervento);
+        		$scope.impiantoIndex = $scope.contratto.consistenzas[$scope.consistenzaIndex].impiantos.indexOf(impianto);;
+        		$scope.interventoIndex = $scope.contratto.consistenzas[$scope.consistenzaIndex].impiantos[$scope.impiantoIndex].interventos.indexOf(intervento);
             });
         };
         
