@@ -1,22 +1,18 @@
 <div>
 
 
-
+<!-- 
 <button type="button" class="btn btn-info btn-sm" ng-click="pdf(contratto.id)">
 	<span class="glyphicon glyphicon-save-file"/>
-</button> 
+</button>
+<a download="content.pdf" ng-href="{{ url }}">download</a>
+<embed ng-src="{{pdf}}" style="width:200px;height:200px;"></embed>
 
 <a ng-href="api/contrattos/{{contratto.id}}/pdf" target="_self">
 <button type="button" class="btn btn-info btn-sm" >
 	<span class="glyphicon glyphicon-save-file"/>
 </button>
 </a>
-
-
-
-<a download="content.pdf" ng-href="{{ url }}">download</a>
-<!-- 
-<embed ng-src="{{pdf}}" style="width:200px;height:200px;"></embed>
 -->
 
     <h2><span translate="jhipsterdemoApp.contratto.detail.title">Contratto</span> {{contratto.id}}</h2>
@@ -24,7 +20,10 @@
             	<div class="panel-group" id="accordion">
                   <div class="panel panel-default" ng-init="toggleCollapseOne = false">
   					<div class="panel-heading">
-						<div class="btn-group pull-right">	
+						<div class="btn-group pull-right">
+							<a type="button" ng-href="api/contrattos/{{contratto.id}}/pdf" target="_self" class="btn btn-info btn-xs">
+								<span class="glyphicon glyphicon-save-file">PDF</span>
+							</a>	
 							<button type="button" ng-click="toggleCollapseOne = !toggleCollapseOne" class="btn btn-default btn-xs" data-toggle="collapse" data-target="#collapseOne">
 					       		<span ng-class="toggleCollapseOne == true ? 'glyphicon glyphicon-plus' : 'glyphicon glyphicon-minus'"/>	 	
 					       	</button>
@@ -93,7 +92,7 @@
 					       		<span ng-class="toggleCollapseTwo == true ? 'glyphicon glyphicon-plus' : 'glyphicon glyphicon-minus'"/>	 	
 					       	</button>
 					    </div>
-						<h4 class="panel-title" style="padding:2px;">Consistenze</h4>					    
+						<h4 class="panel-title" style="padding:3px;">Consistenze</h4>					    
 						<!-- div class="clearfix"></div -->			
   					</div>
           	        <div id="collapseTwo" class="panel-collapse collapse in">
@@ -183,10 +182,7 @@
 				</div>		
 				<div class="panel-footer">Panel footer</div>
 			</div>
-<<<<<<< HEAD
 		</div>	
-=======
->>>>>>> b59a9bd6a0d0fefd4f9db08bd38aeef39e5dd9c1
                       
      	<div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">

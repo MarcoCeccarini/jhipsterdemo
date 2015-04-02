@@ -95,7 +95,6 @@ angular.module('jhipsterdemoApp')
         			$scope.contratto.consistenzas.splice(rowIndex,1);
                 });   
         	}
-        	$scope.$apply();
         };
         
         $scope.removeImpianto = function(id, consistenza, impianto){
