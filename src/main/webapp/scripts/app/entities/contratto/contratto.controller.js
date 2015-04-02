@@ -112,6 +112,7 @@ angular.module('jhipsterdemoApp')
         	}
         };
         
+        
         $scope.removeIntervento = function(id, consistenza, impianto, intervento){
         	
         	var consistenzaIndex = $scope.contratto.consistenzas.indexOf(consistenza);
