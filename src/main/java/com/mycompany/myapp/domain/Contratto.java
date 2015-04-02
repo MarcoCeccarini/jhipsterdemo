@@ -60,6 +60,9 @@ public class Contratto implements Serializable {
 
     @Column(name = "discount_percent")
     private Integer discountPercent;
+    
+    @Column(name = "indirizzo_immobile")
+    private String indirizzoImmobile;
 
     @ManyToOne
     private Cliente cliente;
@@ -121,6 +124,15 @@ public class Contratto implements Serializable {
     public void setDiscountPercent(Integer discountPercent) {
         this.discountPercent = discountPercent;
     }
+    
+    public String getIndirizzoImmobile() {
+  		return indirizzoImmobile;
+  	}
+
+  	public void setIndirizzoImmobile(String indirizzoImmobile) {
+  		this.indirizzoImmobile = indirizzoImmobile;
+  	}
+
 
     public Cliente getCliente() {
         return cliente;
@@ -178,7 +190,7 @@ public class Contratto implements Serializable {
         return true;
     }
 
-    @Override
+	@Override
     public int hashCode() {
         return Objects.hashCode(id);
     }

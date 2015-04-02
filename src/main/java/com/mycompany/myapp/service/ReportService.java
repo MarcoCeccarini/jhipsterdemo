@@ -22,7 +22,7 @@ public class ReportService {
 	public enum ReportResource{
 		TEST_PDF("report/contratto.pdf"),
 		DOC("report/doc.jasper"),
-		CONTRATTO("report/contratto.jasper");
+		CONTRATTO("report/contratto-1.jasper");
 		
 		private String resourceName;
 		

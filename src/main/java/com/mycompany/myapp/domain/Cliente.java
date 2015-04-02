@@ -35,6 +35,18 @@ public class Cliente implements Serializable {
 
     @Column(name = "codice_fiscale")
     private String codiceFiscale;
+    
+    @Column(name = "ragione_sociale")
+    private String ragioneSociale;
+    
+    @Column(name = "indirizzo")
+    private String indirizzo;
+    
+    @Column(name = "citta")
+    private String citta;
+    
+    @Column(name = "cap")
+    private String cap;
 
     @OneToMany(mappedBy = "cliente")
     @JsonIgnore
@@ -72,8 +84,40 @@ public class Cliente implements Serializable {
     public void setCodiceFiscale(String codiceFiscale) {
         this.codiceFiscale = codiceFiscale;
     }
+    
+    public String getRagioneSociale() {
+		return ragioneSociale;
+	}
 
-    public Set<Contratto> getContrattos() {
+	public void setRagioneSociale(String ragioneSociale) {
+		this.ragioneSociale = ragioneSociale;
+	}
+
+	public String getIndirizzo() {
+		return indirizzo;
+	}
+
+	public void setIndirizzo(String indirizzo) {
+		this.indirizzo = indirizzo;
+	}
+
+	public String getCitta() {
+		return citta;
+	}
+
+	public void setCitta(String citta) {
+		this.citta = citta;
+	}
+
+	public String getCap() {
+		return cap;
+	}
+
+	public void setCap(String cap) {
+		this.cap = cap;
+	}
+
+	public Set<Contratto> getContrattos() {
         return contrattos;
     }
 

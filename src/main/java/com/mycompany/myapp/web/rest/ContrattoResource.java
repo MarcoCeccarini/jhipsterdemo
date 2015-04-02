@@ -12,6 +12,7 @@ import net.sf.jasperreports.engine.JRException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
@@ -162,7 +163,7 @@ public class ContrattoResource {
             method = RequestMethod.GET)
            // produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     @Timed
-    public ResponseEntity<ClassPathResource> downloadPdf(@PathVariable Long id) throws JRException, IOException{
+    public ResponseEntity<ByteArrayResource> downloadPdf(@PathVariable Long id) throws JRException, IOException{
     //public ResponseEntity<byte[]> downloadPdf(@PathVariable Long id) throws JRException{
 
         //byte[] bytes = reportService.createPdf(id);
@@ -177,13 +178,14 @@ public class ContrattoResource {
         
         //InputStreamResource isr = new InputStreamResource(new ByteArrayInputStream(bytes));
     	
-    	/*InputStreamResource isr = new InputStreamResource(reportService.getPdf());
-    	headers.setContentLength(isr.contentLength());
-        return new ResponseEntity<InputStreamResource>(isr, headers, HttpStatus.OK);*/
+    	ByteArrayResource res = new ByteArrayResource(reportService.createPdf(id));
+    	headers.setContentLength(res.contentLength());
+        return new ResponseEntity<ByteArrayResource>(res, headers, HttpStatus.OK);
         //return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.OK);
-    	ClassPathResource res = new ClassPathResource("report/contratto.pdf");
+    	/* WORKS!!! ClassPathResource res = new ClassPathResource("report/contratto.pdf");
     	headers.setContentLength(res.contentLength());
     	return new ResponseEntity<ClassPathResource>(res, headers, HttpStatus.OK);
+    	*/
     }
     
     @RequestMapping(value = "/consistenza/{id}",
