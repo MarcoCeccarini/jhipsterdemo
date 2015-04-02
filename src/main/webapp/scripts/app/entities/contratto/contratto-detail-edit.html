@@ -21,162 +21,185 @@
 
     <h2><span translate="jhipsterdemoApp.contratto.detail.title">Contratto</span> {{contratto.id}}</h2>
             <form name="editForm" role="form" novalidate ng-submit="create()">
-                  <div class="panel panel-default">
-                  	<div class="panel-heading">
-						<h4 translate="jhipsterdemoApp.contratto.home.createOrEditLabel">Create or edit a Contratto</h4>	  						
+            	<div class="panel-group" id="accordion">
+                  <div class="panel panel-default" ng-init="toggleCollapseOne = false">
+  					<div class="panel-heading">
+						<div class="btn-group pull-right">	
+							<button type="button" ng-click="toggleCollapseOne = !toggleCollapseOne" class="btn btn-default btn-xs" data-toggle="collapse" data-target="#collapseOne">
+					       		<span ng-class="toggleCollapseOne == true ? 'glyphicon glyphicon-plus' : 'glyphicon glyphicon-minus'"/>	 	
+					       	</button>
+					    </div>
+					    <h4 class="panel-title">
+							<span translate="jhipsterdemoApp.contratto.home.createOrEditLabel">Create or edit a Contratto</span>
+						</h4>			
   					</div>
-                   <div class="panel-body">
-                  	<div class="col-md-6">
-                      <div class="form-group">
-                          <label>ID</label>
-                          <input type="text" class="form-control" name="id"
-                                 ng-model="contratto.id" readonly>
-                      </div>
-
-                      <div class="form-group">
-                          <label translate="jhipsterdemoApp.contratto.decorrenzaDate">DecorrenzaDate</label>
-                          <input type="datetime-local" class="form-control" name="decorrenzaDate"
-                                 ng-model="contratto.decorrenzaDate" ng-model-options="{timezone: 'UTC'}">
-                      </div>
-                      
-                      <div class="form-group">
-                          <label translate="jhipsterdemoApp.contratto.discountPercent">DiscountPercent</label>
-                          <input type="number" class="form-control" name="discountPercent"
-                                 ng-model="contratto.discountPercent">
-                      </div>
-                      
-                     </div>
-                     
-                     <div class="col-md-6">
-                     
-                     	<div class="form-group">
-                          <label translate="jhipsterdemoApp.contratto.cliente">cliente</label>
-                          <select class="form-control" name="cliente" ng-model="contratto.cliente.id" ng-options="cliente.id as cliente.cognome for cliente in clientes">
-                          </select>
-                      	</div>
-                      	
-                      	<div class="form-group">
-                          <label translate="jhipsterdemoApp.contratto.scadenzaDate">ScadenzaDate</label>
-                          <input type="datetime-local" class="form-control" name="scadenzaDate"
-                                 ng-model="contratto.scadenzaDate" ng-model-options="{timezone: 'UTC'}">
-                      	</div>
-                      
-                      	 <div class="form-group">
-                          <label translate="jhipsterdemoApp.contratto.importo">Importo</label>
-                          <input type="number" class="form-control" name="importo"
-                                 ng-model="contratto.importo">
-                      	</div>
-                     
-                     </div>
+  					<div id="collapseOne" class="panel-collapse collapse in">
+	                   <div class="panel-body">
+		                  	<div class="col-md-6">
+		                      <div class="form-group">
+		                          <label>ID</label>
+		                          <input type="text" class="form-control" name="id"
+		                                 ng-model="contratto.id" readonly>
+		                      </div>
+		
+		                      <div class="form-group">
+		                          <label translate="jhipsterdemoApp.contratto.decorrenzaDate">DecorrenzaDate</label>
+		                          <input type="datetime-local" class="form-control" name="decorrenzaDate"
+		                                 ng-model="contratto.decorrenzaDate" ng-model-options="{timezone: 'UTC'}">
+		                      </div>
+		                      
+		                      <div class="form-group">
+		                          <label translate="jhipsterdemoApp.contratto.discountPercent">DiscountPercent</label>
+		                          <input type="number" class="form-control" name="discountPercent"
+		                                 ng-model="contratto.discountPercent">
+		                      </div>
+		                      
+		                     </div>
+		                     
+		                     <div class="col-md-6">
+		                     
+		                     	<div class="form-group">
+		                          <label translate="jhipsterdemoApp.contratto.cliente">cliente</label>
+		                          <select class="form-control" name="cliente" ng-model="contratto.cliente.id" ng-options="cliente.id as cliente.cognome for cliente in clientes">
+		                          </select>
+		                      	</div>
+		                      	
+		                      	<div class="form-group">
+		                          <label translate="jhipsterdemoApp.contratto.scadenzaDate">ScadenzaDate</label>
+		                          <input type="datetime-local" class="form-control" name="scadenzaDate"
+		                                 ng-model="contratto.scadenzaDate" ng-model-options="{timezone: 'UTC'}">
+		                      	</div>
+		                      
+		                      	 <div class="form-group">
+		                          <label translate="jhipsterdemoApp.contratto.importo">Importo</label>
+		                          <input type="number" class="form-control" name="importo"
+		                                 ng-model="contratto.importo">
+		                      	</div>
+		                     
+		                     </div>
+						</div>
 					</div>
 				   </div>	                      
 
-       	        <div class="panel panel-default">
-  					<div class="panel-heading">
-  						<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeConsitenzaModal" ng-click="loadAllTypeConsitenza()">
-      						<span class="glyphicon glyphicon-plus"/>
-  						</button> Consistenze
+       	        <div class="panel panel-default" ng-init="toggleCollapseTwo = false">
+  					<div class="panel-heading clearfix">
+  						<div class="btn-group pull-left">
+					    	<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeConsitenzaModal" ng-click="loadAllTypeConsitenza()">
+      							<span class="glyphicon glyphicon-plus"/>
+  							</button>
+  						</div>
+						<div class="btn-group pull-right">	
+							<button type="button" ng-click="toggleCollapseTwo = !toggleCollapseTwo" class="btn btn-default btn-xs" data-toggle="collapse" data-target="#collapseTwo">
+					       		<span ng-class="toggleCollapseTwo == true ? 'glyphicon glyphicon-plus' : 'glyphicon glyphicon-minus'"/>	 	
+					       	</button>
+					    </div>
+						<h4 class="panel-title" style="padding:2px;">Consistenze</h4>					    
+						<!-- div class="clearfix"></div -->			
   					</div>
-          	            
-          	        <ul class="list-group">
-  
-          	        <li class="list-group-item" class="panel-body" ng-repeat="consistenza in contratto.consistenzas" ng-init="consistenzaIndex = $index">
-          	        	<button type="button" class="btn btn-danger btn-xs" ng-click="removeConsistenza(consistenza.consistenzaId, consistenza)">
-      						<span ng-class="consistenza.consistenzaId == null ? 'glyphicon glyphicon-minus-sign' : 'glyphicon glyphicon-remove-circle'"/>
-  						</button>
-						{{consistenza.typeconsistenza.typeConsistenzaId}} - {{consistenza.typeconsistenza.descrizione}}
-					<div class="table-responsive"> 	
-        	            	 <table class="table">
-							<thead>
-								<th>
-									<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeImpiantoModal" ng-click="loadAllTypeImpianto(consistenza.typeconsistenza.typeConsistenzaId, consistenza)">
-      									<span class="glyphicon glyphicon-plus-sign"/>
-  									</button>
-								</th>
-								<th></th>
-								<th>Impianto</th>
-							</thead>
-							<tbody>
-								<tr ng-repeat="impianto in consistenza.impiantos" ng-init="impiantoIndex = $index">
-									<td>
-										<button type="button" class="btn btn-danger btn-xs" ng-click="removeImpianto(impianto.impiantoId, consistenza, impianto)">
-      										<span ng-class="impianto.impiantoId == null ? 'glyphicon glyphicon-minus-sign' : 'glyphicon glyphicon-remove-circle'"/>
-  										</button>
-									</td>
-									<td>{{impianto.typeimpianto.typeImpiantoId}}</td>
-									<td>{{impianto.typeimpianto.descrizione}}</td>
-									<td>
-										<table class="table">
-											<thead>
-												<th>
-													<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeInterventoModal" ng-click="loadAllTypeIntervento(impianto.typeimpianto.typeImpiantoId, consistenza, impianto)">
-      													<span class="glyphicon glyphicon-plus-sign"/>
-  													</button>	
-												</th>
-												<th></th><th>Intervento</th><th>Mesi</th><th>N.Interventi</th><th></th>
-											</thead>
-											<tbody>
-												<tr ng-repeat="intervento in impianto.interventos" ng-init="interventoIndex = $index">
-													<td>
-														<button type="button" class="btn btn-danger btn-xs" ng-click="removeIntervento(intervento.interventoId, consistenza, impianto, intervento)">
-      														<span ng-class="intervento.interventoId == null ? 'glyphicon glyphicon-minus-sign' : 'glyphicon glyphicon-remove-circle'"/>
-  														</button>
-													</td>
-													<td>{{intervento.typeintervento.typeInterventoId}}</td>
-													<td>{{intervento.typeintervento.descrizione}}</td>
-													<td><input size="3" type="number" class="form-control" placeholder="cadenza" ng-model="intervento.cadenzaMesi"/></td>
-													<td><input size="3" type="number" class="form-control" placeholder="n.interv." ng-model="intervento.numeroInterventi"/></td>
-													<td>
-														<table class="table">
-															<thead>
-																<th>
-																	<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeAttivitaModal" ng-click="loadAllTypeAttivita(intervento.typeintervento.typeInterventoId, consistenza, impianto, intervento)">
-    																	<span class="glyphicon glyphicon-plus-sign"/>
-  																	</button>	
-																</th>
-																<th></th><th>Attivita</th></thead>
-															<tbody>
-																<tr ng-repeat="attivita in intervento.attivitas" ng-init="attivitaIndex = $index">
-																	<td>
-																		<button type="button" class="btn btn-danger btn-xs" ng-click="removeAttivita(attivita.attivitaId, consistenza, impianto, intervento, attivita)">
-      																		<span ng-class="attivita.attivitaId == null ? 'glyphicon glyphicon-minus-sign' : 'glyphicon glyphicon-remove-circle'"/>
-  																		</button>
-																	</td>
-																	<td>{{attivita.typeattivita.typeAttivitaId}}</td>
-																	<td>{{attivita.typeattivita.descrizione}}</td>
-																</tr>
-															</tbody>
-														 </table>
-													</td>		
-												</tr>
-											</tbody>
-										 </table>
-									</td>
-								</tr>
-							</tbody>
-						 </table>
-					</div>	 
-				</li>
-				</ul>	 
+          	        <div id="collapseTwo" class="panel-collapse collapse in">
+	                	<div class="panel-body">    
+		          	        <ul class="list-group">
+		  
+		          	        <li class="list-group-item" class="panel-body" ng-repeat="consistenza in contratto.consistenzas" ng-init="consistenzaIndex = $index">
+		          	        	<button type="button" class="btn btn-danger btn-xs" ng-click="removeConsistenza(consistenza.consistenzaId, consistenza)">
+		      						<span ng-class="consistenza.consistenzaId == null ? 'glyphicon glyphicon-minus-sign' : 'glyphicon glyphicon-remove-circle'"/>
+		  						</button>
+								{{consistenza.typeconsistenza.typeConsistenzaId}} - {{consistenza.typeconsistenza.descrizione}}
+							<div class="table-responsive"> 	
+		        	            	 <table class="table">
+									<thead>
+										<th>
+											<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeImpiantoModal" ng-click="loadAllTypeImpianto(consistenza.typeconsistenza.typeConsistenzaId, consistenza)">
+		      									<span class="glyphicon glyphicon-plus-sign"/>
+		  									</button>
+										</th>
+										<th></th>
+										<th>Impianto</th>
+										<th></th>
+									</thead>
+									<tbody>
+										<tr ng-repeat="impianto in consistenza.impiantos" ng-init="impiantoIndex = $index">
+											<td>
+												<button type="button" class="btn btn-danger btn-xs" ng-click="removeImpianto(impianto.impiantoId, consistenza, impianto)">
+		      										<span ng-class="impianto.impiantoId == null ? 'glyphicon glyphicon-minus-sign' : 'glyphicon glyphicon-remove-circle'"/>
+		  										</button>
+											</td>
+											<td>{{impianto.typeimpianto.typeImpiantoId}}</td>
+											<td>{{impianto.typeimpianto.descrizione}}</td>
+											<td>
+												<table class="table">
+													<thead>
+														<th>
+															<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeInterventoModal" ng-click="loadAllTypeIntervento(impianto.typeimpianto.typeImpiantoId, consistenza, impianto)">
+		      													<span class="glyphicon glyphicon-plus-sign"/>
+		  													</button>	
+														</th>
+														<th></th><th>Intervento</th><th>Mesi</th><th>N.Interventi</th><th></th>
+													</thead>
+													<tbody>
+														<tr ng-repeat="intervento in impianto.interventos" ng-init="interventoIndex = $index">
+															<td>
+																<button type="button" class="btn btn-danger btn-xs" ng-click="removeIntervento(intervento.interventoId, consistenza, impianto, intervento)">
+		      														<span ng-class="intervento.interventoId == null ? 'glyphicon glyphicon-minus-sign' : 'glyphicon glyphicon-remove-circle'"/>
+		  														</button>
+															</td>
+															<td>{{intervento.typeintervento.typeInterventoId}}</td>
+															<td>{{intervento.typeintervento.descrizione}}</td>
+															<td><input size="3" type="number" class="form-control" placeholder="cadenza" ng-model="intervento.cadenzaMesi"/></td>
+															<td><input size="3" type="number" class="form-control" placeholder="n.interv." ng-model="intervento.numeroInterventi"/></td>
+															<td>
+																<table class="table">
+																	<thead>
+																		<th>
+																			<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#loadAllTypeAttivitaModal" ng-click="loadAllTypeAttivita(intervento.typeintervento.typeInterventoId, consistenza, impianto, intervento)">
+		    																	<span class="glyphicon glyphicon-plus-sign"/>
+		  																	</button>	
+																		</th>
+																		<th></th><th>Attivita</th></thead>
+																	<tbody>
+																		<tr ng-repeat="attivita in intervento.attivitas" ng-init="attivitaIndex = $index">
+																			<td>
+																				<button type="button" class="btn btn-danger btn-xs" ng-click="removeAttivita(attivita.attivitaId, consistenza, impianto, intervento, attivita)">
+		      																		<span ng-class="attivita.attivitaId == null ? 'glyphicon glyphicon-minus-sign' : 'glyphicon glyphicon-remove-circle'"/>
+		  																		</button>
+																			</td>
+																			<td>{{attivita.typeattivita.typeAttivitaId}}</td>
+																			<td>{{attivita.typeattivita.descrizione}}</td>
+																		</tr>
+																	</tbody>
+																 </table>
+															 </td>		
+														</tr>
+													 </tbody>
+												 </table>
+											 </td>
+										 </tr>
+									</tbody>
+								  </table>
+								</div>	 
+							</li>
+						</ul>	 
+					</div>
+				</div>		
 				<div class="panel-footer">Panel footer</div>
 			</div>
+		</div>	
                       
-                  <div class="modal-footer">
-                   <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                       <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
-                   </button>
-                   <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
-                       <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
-                   </button>
-              	</div>
+     	<div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+            </button>
+            <button type="submit" ui-sref="contratto" ng-click="create()" ng-disabled="editForm.$invalid" class="btn btn-primary">
+                <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+            </button>
+       	</div>
                       
-              </form>
+   </form>
 
-    <button type="submit"
-            ui-sref="contratto"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
-    </button>
+   <button type="submit" ui-sref="contratto" class="btn btn-info">
+   		<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back">Back</span>
+   </button>
+    
 </div>
 
 
