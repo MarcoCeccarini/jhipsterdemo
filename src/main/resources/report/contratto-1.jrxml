@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.0.3.final using JasperReports Library version 6.0.3  -->
-<!-- 2015-04-02T15:34:28 -->
+<!-- 2015-04-03T10:26:18 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratto-1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a9e8cdd-28e5-451a-ad08-c546b437a562">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="contratto" class="com.mycompany.myapp.domain.Contratto">
@@ -10,7 +10,7 @@
 		<![CDATA[]]>
 	</queryString>
 	<field name="typeconsistenza.descrizione" class="java.lang.String"/>
-	<field name="typeconsistenza.typeConsistenzaId" class="java.lang.String"/>
+	<field name="typeconsistenza.typeConsistenzaId" class="java.lang.Integer"/>
 	<field name="impiantos" class="java.util.Collection"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -131,7 +131,7 @@
 		<band height="61" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="35" splitType="Stretch">
+		<band height="71" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="29" height="20" uuid="1f76bba2-e743-4cd1-b50a-6d5fc6d286f6"/>
 				<textFieldExpression><![CDATA[$F{typeconsistenza.typeConsistenzaId}]]></textFieldExpression>
@@ -141,9 +141,9 @@
 				<textFieldExpression><![CDATA[$F{typeconsistenza.descrizione}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="0" y="14" width="538" height="21" isRemoveLineWhenBlank="true" uuid="4d241f07-390c-4648-a874-24ffd1bb01cd"/>
+				<reportElement x="0" y="24" width="555" height="36" uuid="a9c781d0-e248-4a3e-99a1-2b45e5b2a35f"/>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{impiantos})]]></dataSourceExpression>
-				<subreportExpression><![CDATA["impiantos-1.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA["report/impiantos-1.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>

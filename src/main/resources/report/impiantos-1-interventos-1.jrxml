@@ -1,68 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.0.3.final using JasperReports Library version 6.0.3  -->
-<!-- 2015-04-02T15:18:44 -->
+<!-- 2015-04-03T11:01:58 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="impiantos-1-interventos-1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fb7608be-7c85-4df9-a651-da131ee3322b">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
 	<field name="attivitas" class="java.util.Collection"/>
-	<field name="typeintervento.typeInterventoId" class="java.lang.String"/>
+	<field name="typeintervento.typeInterventoId" class="java.lang.Integer"/>
 	<field name="typeintervento.descrizione" class="java.lang.String"/>
-	<field name="cadenzaMesi" class="java.lang.String"/>
-	<field name="numeroInterventi" class="java.lang.String"/>
+	<field name="cadenzaMesi" class="java.lang.Integer"/>
+	<field name="numeroInterventi" class="java.lang.Integer"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
-	<title>
-		<band height="79" splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band height="35" splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="64" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="28" height="20" uuid="a6c64a57-2ee9-40b7-af52-3a9064902058"/>
+				<reportElement x="0" y="0" width="28" height="20" uuid="e2ff36b3-1f74-455d-b034-54625bfc8996"/>
 				<textFieldExpression><![CDATA[$F{typeintervento.typeInterventoId}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="28" y="0" width="289" height="20" uuid="fb5cb480-8ca1-47e0-ad7d-1ecbf21ad97b"/>
+				<reportElement x="28" y="0" width="289" height="20" uuid="ede7ff4f-8374-4de5-b1ce-f0d4f7548334"/>
 				<textFieldExpression><![CDATA[$F{typeintervento.descrizione}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="328" y="0" width="69" height="20" uuid="f137f26a-3ce9-40ee-8eac-16326ad4a2d0"/>
+				<reportElement x="328" y="0" width="69" height="20" uuid="cd2b6d62-3c0e-4d8e-b25e-08f223ffa0c2"/>
 				<text><![CDATA[Cadenza Mesi]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="431" y="0" width="87" height="20" uuid="b8decb27-5325-4927-8097-13407936c447"/>
+				<reportElement x="431" y="0" width="87" height="20" uuid="029605d5-fe32-4e6d-883f-4bd3d4a7bf1e"/>
 				<text><![CDATA[Numero Interventi]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="397" y="0" width="21" height="20" uuid="df91995e-b5e6-44d7-8445-f28e426ed09b"/>
+				<reportElement x="397" y="0" width="21" height="20" uuid="beee6a11-3fa1-4bbd-97ac-2c7bac8394a8"/>
 				<textFieldExpression><![CDATA[$F{cadenzaMesi}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="28" y="20" width="527" height="22" isRemoveLineWhenBlank="true" uuid="f3723d11-4bd0-44eb-a0b9-9c02295736e1"/>
+				<reportElement x="28" y="20" width="527" height="22" isRemoveLineWhenBlank="true" uuid="c0bd1990-b2da-4890-8934-b2789c7305bb"/>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{attivitas})]]></dataSourceExpression>
-				<subreportExpression><![CDATA["impiantos-1-interventos-1-attivitas-1.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA["report/impiantos-1-interventos-1-attivitas-1.jasper"]]></subreportExpression>
 			</subreport>
-			<textField>
-				<reportElement x="518" y="0" width="22" height="20" uuid="2be18f38-5a69-4bee-a51e-230b05dc927e"/>
-				<textFieldExpression><![CDATA[$F{numeroInterventi}]]></textFieldExpression>
-			</textField>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>
