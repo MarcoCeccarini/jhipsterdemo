@@ -13,7 +13,6 @@ import net.sf.jasperreports.engine.JRException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -28,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Attivita;
+import com.mycompany.myapp.domain.Cliente;
 import com.mycompany.myapp.domain.Consistenza;
 import com.mycompany.myapp.domain.Contratto;
 import com.mycompany.myapp.domain.Impianto;
@@ -46,6 +46,7 @@ import com.mycompany.myapp.repository.TypeConsistenzaRepository;
 import com.mycompany.myapp.repository.TypeImpiantoRepository;
 import com.mycompany.myapp.repository.TypeInterventoRepository;
 import com.mycompany.myapp.service.ContrattoService;
+import com.mycompany.myapp.service.MailService;
 import com.mycompany.myapp.service.ReportService;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
 
@@ -78,6 +79,9 @@ public class ContrattoResource {
     
     @Inject
     private ReportService reportService;
+    
+    @Inject
+    private MailService mailService;
     
     @Inject
     private TypeConsistenzaRepository typeConsistenzaRepository;
@@ -347,6 +351,18 @@ public class ContrattoResource {
     public void delete(@PathVariable Long id) {
         log.debug("REST request to delete Contratto : {}", id);
         contrattoRepository.delete(id);
+    }
+    
+    
+    @RequestMapping(value = "/contrattos/{id}/pdf/send",
+            method = RequestMethod.DELETE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public void sendPdf(@PathVariable Long id) throws Exception{
+        log.debug("REST request to send Contratto : {}", id);
+        byte[] pdfBytes = reportService.createPdf(id);
+        mailService.sendContrattoEmail(new Cliente(), pdfBytes);
+        //return ResponseEntity.ok().build();
     }
     
 }

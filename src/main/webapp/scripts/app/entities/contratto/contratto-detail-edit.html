@@ -12,7 +12,7 @@
                   <div class="panel panel-default" ng-init="toggleCollapseOne = false">
   					<div class="panel-heading">
 						<div class="btn-group pull-right">
-							<a id="pdfSaveLink" ng-if="url != null" type="button" class="btn btn-info btn-xs" download="content.pdf" ng-href="{{url}}">
+							<a name="pdfSaveLink" ng-if="url != null" type="button" class="btn btn-info btn-xs" download="content.pdf" ng-href="{{url}}">
 								<span class="glyphicon glyphicon-save-file">Save</span>
 							</a>
 							<a type="button" ng-href="api/contrattos/{{contratto.id}}/pdf" target="_self" class="btn btn-info btn-xs">
@@ -21,7 +21,7 @@
 							<button type="button" class="btn btn-info btn-xs" ng-click="pdf(contratto.id)">
 					       		<span class="glyphicon glyphicon-envelope">PDF 2</span>	 	
 					       	</button>
-							<button type="button" class="btn btn-info btn-xs">
+							<button type="button" class="btn btn-info btn-xs" ng-click="pdfSend(contratto.id)">
 					       		<span class="glyphicon glyphicon-envelope"/>	 	
 					       	</button>	
 							<button type="button" ng-click="toggleCollapseOne = !toggleCollapseOne" class="btn btn-default btn-xs" data-toggle="collapse" data-target="#collapseOne">

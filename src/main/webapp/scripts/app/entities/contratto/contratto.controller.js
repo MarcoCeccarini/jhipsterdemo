@@ -223,9 +223,13 @@ angular.module('jhipsterdemoApp')
         	Contratto.pdf({id:id}, function(result) {
         		$scope.pdf = result.pdf;
         		$scope.url = $sce.trustAsResourceUrl(result.url);
-        		var pdfSaveLink = $document.find('#pdfSaveLink');
-        		pdfSaveLink.click();
             });  
         };
         
+        
+        $scope.pdfSend = function(id){
+        	Contratto.pdfSend({id:id}, function(result) {
+
+            });  
+        };
     });

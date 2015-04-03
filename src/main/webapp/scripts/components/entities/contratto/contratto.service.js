@@ -33,6 +33,10 @@ angular.module('jhipsterdemoApp')
                     var url = URL.createObjectURL(pdf);
                     return { response : pdf , url : url};
                 }
-            }             
+            },
+            'pdfSend': {  
+            	url : 'api/contrattos/:id/pdf/send',
+                method: 'DELETE'
+            }	
         });
     });
