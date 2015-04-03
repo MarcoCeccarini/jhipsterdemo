@@ -2,7 +2,7 @@
 
 angular.module('jhipsterdemoApp')
     .controller('ContrattoController', function (
-    		$scope, ParseLinks, $stateParams, $location,
+    		$scope, ParseLinks, $stateParams, $location, $sce, $window, $document,
     		Contratto, Cliente, Consistenza, Impianto, Intervento, Attivita,
     		TypeConsistenza, TypeImpianto, TypeIntervento, TypeAttivita
     		) {
@@ -221,8 +221,10 @@ angular.module('jhipsterdemoApp')
         
         $scope.pdf = function(id){
         	Contratto.pdf({id:id}, function(result) {
-        		//$scope.pdf = result;
-        		$scope.url = result;
+        		$scope.pdf = result.pdf;
+        		$scope.url = $sce.trustAsResourceUrl(result.url);
+        		var pdfSaveLink = $document.find('#pdfSaveLink');
+        		pdfSaveLink.click();
             });  
         };
         

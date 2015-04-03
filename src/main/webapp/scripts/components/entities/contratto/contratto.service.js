@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('jhipsterdemoApp')
-    .factory('Contratto', function ($resource, $sce) {
+    .factory('Contratto', function ($resource, $sce, $window) {
         return $resource('api/contrattos/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'get': {
@@ -21,6 +21,7 @@ angular.module('jhipsterdemoApp')
                     accept: 'application/pdf'
                 },
                 responseType: 'arraybuffer',
+                //responseType: 'text',
                 cache: true,
                 transformResponse: function (data) {
                     var pdf;
@@ -29,13 +30,8 @@ angular.module('jhipsterdemoApp')
                             type: 'application/pdf'
                         });
                     }
-                    var pdfUrl = URL.createObjectURL(pdf);
-                    //window.open(pdfUrl);
-                    var content = $sce.trustAsResourceUrl(pdfUrl);
-                    return content;
-                    /* return {
-                        response: pdf
-                    }; */
+                    var url = URL.createObjectURL(pdf);
+                    return { response : pdf , url : url};
                 }
             }             
         });

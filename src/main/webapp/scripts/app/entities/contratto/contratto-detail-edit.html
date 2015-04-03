@@ -1,29 +1,29 @@
 <div>
 
-
-<!-- 
-<button type="button" class="btn btn-info btn-sm" ng-click="pdf(contratto.id)">
-	<span class="glyphicon glyphicon-save-file"/>
-</button>
-<a download="content.pdf" ng-href="{{ url }}">download</a>
-<embed ng-src="{{pdf}}" style="width:200px;height:200px;"></embed>
-
-<a ng-href="api/contrattos/{{contratto.id}}/pdf" target="_self">
-<button type="button" class="btn btn-info btn-sm" >
-	<span class="glyphicon glyphicon-save-file"/>
-</button>
-</a>
--->
-
+	<div>
+		<embed	type="application/pdf"  src="http://localhost:9080/jhipsterdemo/api/contrattos/1/pdf"
+    		id="pdfDocument"  width="100%"  height="100%">
+		</embed>
+	</div>
+	
     <h2><span translate="jhipsterdemoApp.contratto.detail.title">Contratto</span> {{contratto.id}}</h2>
             <form name="editForm" role="form" novalidate ng-submit="create()">
             	<div class="panel-group" id="accordion">
                   <div class="panel panel-default" ng-init="toggleCollapseOne = false">
   					<div class="panel-heading">
 						<div class="btn-group pull-right">
+							<a id="pdfSaveLink" ng-if="url != null" type="button" class="btn btn-info btn-xs" download="content.pdf" ng-href="{{url}}">
+								<span class="glyphicon glyphicon-save-file">Save</span>
+							</a>
 							<a type="button" ng-href="api/contrattos/{{contratto.id}}/pdf" target="_self" class="btn btn-info btn-xs">
-								<span class="glyphicon glyphicon-save-file">PDF</span>
-							</a>	
+								<span class="glyphicon glyphicon-save-file">PDF 1</span>
+							</a>
+							<button type="button" class="btn btn-info btn-xs" ng-click="pdf(contratto.id)">
+					       		<span class="glyphicon glyphicon-envelope">PDF 2</span>	 	
+					       	</button>
+							<button type="button" class="btn btn-info btn-xs">
+					       		<span class="glyphicon glyphicon-envelope"/>	 	
+					       	</button>	
 							<button type="button" ng-click="toggleCollapseOne = !toggleCollapseOne" class="btn btn-default btn-xs" data-toggle="collapse" data-target="#collapseOne">
 					       		<span ng-class="toggleCollapseOne == true ? 'glyphicon glyphicon-plus' : 'glyphicon glyphicon-minus'"/>	 	
 					       	</button>

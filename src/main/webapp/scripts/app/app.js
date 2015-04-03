@@ -61,11 +61,14 @@ angular.module('jhipsterdemoApp', ['LocalStorageModule', 'tmh.dynamicLocale',
         }
       }
     })
-    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider,
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, 
+    		$locationProvider, $translateProvider, $compileProvider,
     		tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider, toastr) {
     	
     	toastr.options.closeButton = true;
     	toastr.options.timeOut = 2 * 1000;
+    	
+    	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blo??b):/); 
     	
     	//request/response interceptor
     	$httpProvider.interceptors.push(function($q, toastr, $rootScope) {
