@@ -360,8 +360,11 @@ public class ContrattoResource {
     @Timed
     public void sendPdf(@PathVariable Long id) throws Exception{
         log.debug("REST request to send Contratto : {}", id);
+        
+        Contratto contratto = contrattoRepository.findById(id);
+        
         byte[] pdfBytes = reportService.createPdf(id);
-        mailService.sendContrattoEmail(new Cliente(), pdfBytes);
+        mailService.sendContrattoEmail(contratto.getCliente(), pdfBytes);
         //return ResponseEntity.ok().build();
     }
     

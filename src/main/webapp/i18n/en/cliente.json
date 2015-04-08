@@ -15,7 +15,8 @@
             "cognome": "Cognome",
             "nome": "Nome",
             "codiceFiscale": "CodiceFiscale",
-            "contratto": "contratto"
+            "contratto": "contratto",
+            "email": "email"
         }
     }
 }

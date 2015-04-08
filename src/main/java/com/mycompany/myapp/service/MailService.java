@@ -104,8 +104,8 @@ public class MailService {
 
 		MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-		helper.setFrom("ceccarinimarco@gmail.com");
-		helper.setTo("ceccarinimarco@gmail.com");
+		helper.setFrom("ceccarinimarco.dev@gmail.com");
+		helper.setTo(cliente.getEmail());
 		helper.setSubject("Contratto");
 		helper.setText("Contratto");
 

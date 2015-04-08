@@ -47,6 +47,9 @@ public class Cliente implements Serializable {
     
     @Column(name = "cap")
     private String cap;
+    
+    @Column(name = "email")
+    private String email;
 
     @OneToMany(mappedBy = "cliente")
     @JsonIgnore
@@ -115,6 +118,14 @@ public class Cliente implements Serializable {
 
 	public void setCap(String cap) {
 		this.cap = cap;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Set<Contratto> getContrattos() {
